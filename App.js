@@ -8,6 +8,7 @@ function App() {
     const mobile_menu = document.querySelector('.header .nav-bar .nav-list ul');
     const menu_item = document.querySelectorAll('.header .nav-bar .nav-list ul li a');
     const header = document.querySelector('.header.container');
+    const downloadResumeBtn = document.getElementById('download-resume-btn');
 
     const toggleMenu = () => {
       hamburger.classList.toggle('active');
@@ -23,11 +24,17 @@ function App() {
       }
     };
 
+    const showResumeSection = () => {
+      const resumeSection = document.getElementById('resume');
+      resumeSection.style.display = 'block';
+    };
+
     hamburger.addEventListener('click', toggleMenu);
     menu_item.forEach((item) => {
       item.addEventListener('click', toggleMenu);
     });
     document.addEventListener('scroll', handleScroll);
+    downloadResumeBtn.addEventListener('click', showResumeSection);
 
     return () => {
       hamburger.removeEventListener('click', toggleMenu);
@@ -35,6 +42,7 @@ function App() {
         item.removeEventListener('click', toggleMenu);
       });
       document.removeEventListener('scroll', handleScroll);
+      downloadResumeBtn.removeEventListener('click', showResumeSection);
     };
   }, []);
 
