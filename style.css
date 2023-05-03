@@ -701,3 +701,37 @@ p {
 	}
 }
 /* End  Media Query For Desktop */
+
+.resume {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	justify-content: center;
+  }
+  
+  .resume-card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	padding: 20px;
+	width: calc(25% - 20px);
+	box-sizing: border-box;
+	margin-bottom: 20px;
+  }
+  
+  .resume-card img {
+	width: 100%;
+	height: auto;
+  }
+  
+  @media screen and (max-width: 768px) {
+	.resume-card {
+	  width: calc(50% - 20px);
+	}
+  }
+  
+  @media screen and (max-width: 480px) {
+	.resume-card {
+	  width: 100%;
+	}
+  }
+  
+  
