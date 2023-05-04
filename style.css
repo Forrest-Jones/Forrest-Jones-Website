@@ -733,5 +733,161 @@ p {
 	  width: 100%;
 	}
   }
+  .github-link {
+	font-size: 18px; /* Adjust the font size as needed */
+	color: rgb(233, 5, 5); /* Set the text color to black */
+	text-decoration: none; /* Remove the underline from the link */
+	display: inline-block; /* Allows the use of margin and padding */
+    margin-top: 10px; /* Adjust this value based on how much you want to move the link down */
+  /* Any other styles you want to apply to the link */
+  }
+  
+  /* Optional: Add styles for the link when it is hovered */
+  .github-link:hover {
+	color: rgb(239, 111, 111); /* Change the text color when hovered */
+	text-decoration: underline; /* Add underline when hovered */
+  }
+  .project-img {
+	/* Set a fixed width and height for the project image container */
+	width: 100%;
+	max-width: 400px; /* Adjust this value based on your design */
+	height: auto;
+	position: relative;
+	overflow: hidden; /* Hide any content that overflows the container */
+  }
+  
+  .project-img video {
+	/* Make the video fill the entire container */
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* Ensure the video maintains its aspect ratio */
+  }
+  .resume-buttons-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column; /* Use this if the buttons should be stacked vertically */
+	padding-top: 96px; /* Move the buttons down by 1 inch */
+  }
+  .service-item {
+	position: relative;
+	overflow: hidden;
+	min-height: 900px; /* Adjust this value based on your design */
+	height: 100px; /* Set the height property to match the min-height */
+	transition: height 40s ease-in-out; /* Increase the transition duration here */
+	padding-top: 50px; /* Add padding to create space for the icon */
+	padding-left: 120px; /* Add padding to create space for the icon */
+  }
+  
+  .service-item .icon {
+	position: relative;
+	top: 10px; /* Adjust this value to position the icon */
+	left: 10px; /* Adjust this value to position the icon */
+	z-index: 1; /* Ensure the icon is above the text */
+  }
+  
+  .service-item:hover {
+	height: auto; /* Show the full content on hover */
+  }
+  
+  .hamburger {
+	cursor: pointer;
+	display: none;
+  }
+  
+  .nav-links {
+	display: flex;
+	list-style: none;
+  }
+  
+  .nav-links li a {
+	padding: 0 10px;
+  }
+  
+  /* Hide navigation links by default on smaller screens */
+@media (max-width: 768px) {
+	.nav-list ul {
+	  display: none;
+	}
+	/* Show navigation links when the "nav-active" class is added */
+	.nav-list ul.nav-active {
+	  display: block;
+	}
+	/* Style the hamburger menu */
+	.hamburger {
+	  cursor: pointer;
+	}
+	.hamburger .bar {
+	  /* Add styles for the hamburger menu bars */
+	}
+  }
+  .contact-item {
+	background-color: #f0f0f0; /* Light gray background color */
+	padding: 15px; /* Add padding around the content */
+	border-radius: 5px; /* Optional: round the corners of the boxes */
+	border: 2px solid #808080; /* Dark grey border */
+  }
+  .contact-item .contact-info p {
+	text-align: center;
+  }
+  .ai-email-button {
+	display: inline-block;
+	padding: 8px 16px;
+	background-color: #4CAF50; /* Change to your preferred color */
+	color: #ffffff;
+	text-align: center;
+	border: none;
+	cursor: pointer;
+	border-radius: 4px;
+	text-decoration: none;
+	transition: background-color 0.3s ease;
+  }
+  
+  .ai-email-button:hover {
+	background-color: #3a8e40; /* Change to your preferred hover color */
+  }
+  .contact-info {
+	display: flex;
+	flex-direction: column;
+	align-items: center; /* Center the content vertically */
+  }
+  
+  .ai-email-button {
+	/* Add styles for the button */
+	background-color: green;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+	margin-top: 10px; /* Add some space above the button */
+	text-align: center;
+  }
+  
+  .bottom-image-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10px; /* Optional: Add some space above the image */
+  }
+  
+  .bottom-image {
+	width: 100px; /* Set the width of the image */
+	height: auto; /* Maintain aspect ratio */
+  }
+  .image-container {
+	text-align: center;
+	margin-top: 96px; /* Move the image down by approximately 1 inch */
+  }
+  
+  .postage-stamp-image {
+	width: 100px; /* Adjust the size as needed */
+	border: 1px solid black;
+  }
+  .contact-item .contact-info a.address-link {
+	color: blue;
+  }
+  
+  
+  
   
   
