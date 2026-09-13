@@ -550,6 +550,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 	margin: 0;
 }
 .portfolio-card strong { color: var(--text); }
+.portfolio-card p.portfolio-link {
+	margin-top: 12px;
+	font-size: 0.88rem;
+	font-weight: 600;
+	color: var(--accent);
+}
+.portfolio-link a:hover { color: var(--text); }
+.timeline-org a { color: inherit; }
+.timeline-org a:hover { color: var(--accent); }
 
 .now-strip {
 	display: grid;
@@ -1109,6 +1118,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 	font-size: 0.94rem;
 }
 .result-body strong { color: var(--text); }
+.result-link {
+	margin: 18px 0 0;
+	font-size: 0.9rem;
+	font-weight: 600;
+}
+.result-link a:hover { color: var(--text); }
 .results-note {
 	margin: 28px 0 0;
 	text-align: center;
