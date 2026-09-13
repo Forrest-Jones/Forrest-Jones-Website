@@ -149,36 +149,73 @@
 		sections.forEach(function (section) { spy.observe(section); });
 	}
 
-	/* ---------- Lazy video (the hero-project clip is large) ---------- */
+	/* ---------- Booking links ----------
+	   Set BOOKING_URL to your Calendly / cal.com / Google appointment link and every
+	   "Book a call" button points there. Left empty, they fall back to a pre-filled email. */
 
-	var lazyVideos = document.querySelectorAll('video.lazy-video');
+	var BOOKING_URL = '';
 
-	function loadVideo(video) {
-		if (video.dataset.loaded) return;
-		video.dataset.loaded = '1';
-		var source = document.createElement('source');
-		source.src = video.dataset.src;
-		source.type = 'video/mp4';
-		video.appendChild(source);
-		video.load();
-		if (!reduceMotion) {
-			var attempt = video.play();
-			if (attempt && attempt.catch) attempt.catch(function () { /* autoplay blocked */ });
+	document.querySelectorAll('.js-book').forEach(function (link) {
+		if (BOOKING_URL) {
+			link.href = BOOKING_URL;
+			link.target = '_blank';
+			link.rel = 'noopener';
+		} else if (link.dataset.fallback) {
+			link.href = link.dataset.fallback;
 		}
+	});
+
+	/* ---------- Contact form ----------
+	   Posts to Formspree when the action has a real form id. Until then it composes
+	   an email from the fields so the form is never a dead end. */
+
+	var form = document.getElementById('contact-form');
+	var status = document.getElementById('form-status');
+
+	function setStatus(text, kind) {
+		if (!status) return;
+		status.textContent = text;
+		status.className = 'form-status' + (kind ? ' ' + kind : '');
 	}
 
-	if ('IntersectionObserver' in window) {
-		var videoObserver = new IntersectionObserver(function (entries) {
-			entries.forEach(function (entry) {
-				if (!entry.isIntersecting) return;
-				loadVideo(entry.target);
-				videoObserver.unobserve(entry.target);
+	if (form) {
+		form.addEventListener('submit', function (event) {
+			event.preventDefault();
+			var invalid = false;
+			form.querySelectorAll('[required]').forEach(function (field) {
+				var bad = !field.value.trim() || (field.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(field.value));
+				field.setAttribute('aria-invalid', bad ? 'true' : 'false');
+				if (bad && !invalid) { invalid = true; field.focus(); }
 			});
-		}, { rootMargin: '200px' });
+			if (invalid) { setStatus('Please fill in your name, a valid email, and a message.', 'err'); return; }
 
-		lazyVideos.forEach(function (video) { videoObserver.observe(video); });
-	} else {
-		lazyVideos.forEach(loadVideo);
+			var data = new FormData(form);
+			var configured = form.action.indexOf('YOUR_FORM_ID') === -1;
+
+			if (!configured || !window.fetch) {
+				var body = 'Name: ' + data.get('name') + '\nEmail: ' + data.get('email') +
+					'\nCompany: ' + (data.get('company') || '-') + '\nReaching out as: ' + (data.get('role') || '-') +
+					'\n\n' + data.get('message');
+				window.location.href = 'mailto:forrestjones2010@gmail.com?subject=' +
+					encodeURIComponent(data.get('_subject') || 'Website inquiry') + '&body=' + encodeURIComponent(body);
+				setStatus('Opening your email app with the message filled in.', 'ok');
+				return;
+			}
+
+			var button = form.querySelector('button[type="submit"]');
+			button.disabled = true;
+			setStatus('Sending\u2026');
+			fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+				.then(function (res) {
+					if (!res.ok) throw new Error('bad status');
+					form.reset();
+					setStatus('Thanks. Your message is in my inbox and I will reply personally.', 'ok');
+				})
+				.catch(function () {
+					setStatus('That did not go through. Email me directly at forrestjones2010@gmail.com.', 'err');
+				})
+				.then(function () { button.disabled = false; });
+		});
 	}
 
 	/* ---------- Rotating role in the hero ---------- */
