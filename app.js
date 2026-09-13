@@ -185,11 +185,11 @@
 
 	var rotator = document.getElementById('role-rotator');
 	var roles = [
-		'agentic AI engineering',
-		'LLM product development',
-		'fintech systems architecture',
-		'full-stack delivery',
-		'blockchain integrations'
+		'Chief Financial Officer',
+		'Head of Capital Formation',
+		'Hedge Fund Manager, CHFP',
+		'Director of Capital Markets',
+		'AI-Driven Investor Relations'
 	];
 
 	if (rotator && !reduceMotion) {
@@ -252,6 +252,66 @@
 				done(ok);
 			}
 		});
+	});
+
+	/* ---------- Artwork stamp: flips to the original drawing ---------- */
+
+	var stamp = document.getElementById('stamp');
+	var caption = document.getElementById('stamp-caption');
+	var zoom = document.getElementById('stamp-zoom');
+	var lightbox = document.getElementById('lightbox');
+	var lightboxClose = document.getElementById('lightbox-close');
+	var lastFocus = null;
+
+	if (stamp) {
+		stamp.addEventListener('click', function () {
+			var flipped = stamp.getAttribute('aria-pressed') !== 'true';
+			stamp.setAttribute('aria-pressed', String(flipped));
+
+			if (!reduceMotion) {
+				stamp.classList.remove('flashing');
+				// Reflow so the flash animation restarts on every flip.
+				void stamp.offsetWidth;
+				stamp.classList.add('flashing');
+			}
+
+			if (caption) {
+				caption.innerHTML = flipped
+					? 'Original drawing by Forrest Jones &middot; <span>tap to flip back</span>'
+					: 'Unfollow the Dead &middot; <span>tap to reveal</span>';
+			}
+			if (zoom) zoom.hidden = !flipped;
+		});
+
+		stamp.addEventListener('animationend', function () {
+			stamp.classList.remove('flashing');
+		});
+	}
+
+	function openLightbox() {
+		if (!lightbox) return;
+		lastFocus = document.activeElement;
+		lightbox.hidden = false;
+		document.body.style.overflow = 'hidden';
+		if (lightboxClose) lightboxClose.focus();
+	}
+
+	function closeLightbox() {
+		if (!lightbox || lightbox.hidden) return;
+		lightbox.hidden = true;
+		document.body.style.overflow = '';
+		if (lastFocus && lastFocus.focus) lastFocus.focus();
+	}
+
+	if (zoom) zoom.addEventListener('click', openLightbox);
+	if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+	if (lightbox) {
+		lightbox.addEventListener('click', function (event) {
+			if (event.target === lightbox) closeLightbox();
+		});
+	}
+	document.addEventListener('keydown', function (event) {
+		if (event.key === 'Escape') closeLightbox();
 	});
 
 	/* ---------- Footer year ---------- */
