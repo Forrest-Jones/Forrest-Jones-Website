@@ -1302,7 +1302,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 	.field-wide { grid-column: 1 / -1; }
-	.stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+	.stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 	.footer-inner {
 		flex-direction: row;
 		justify-content: space-between;

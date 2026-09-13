@@ -87,8 +87,10 @@ use a different code, change that one `data-goatcounter` URL.
   `style.css` under `:root`.
 - **Rotating hero roles** are the `roles` array in `app.js`.
 - **Copyright year** is injected at runtime; no annual edit needed.
-- **Headline numbers** appear in the meta description, the hero stats, the
-  Experience intro, and the About copy. Keep all four in sync when they change.
+- **Headline numbers** ($10B+ raised: $9B public markets, $1B private equity
+  and venture capital across 40 companies) appear in the meta description, the
+  hero stats, the Experience intro, and the About copy. Keep all four in sync
+  when they change.
 
 ## Images
 
