@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://forrest-jones.github.io/Forrest-Jones-Website/sitemap.xml
