@@ -185,10 +185,11 @@
 
 	var rotator = document.getElementById('role-rotator');
 	var roles = [
+		'Chief Investment Officer',
 		'Chief Financial Officer',
+		'Founder & CEO, Proverbs 1821',
 		'Head of Capital Formation',
 		'Hedge Fund Manager, CHFP',
-		'Director of Capital Markets',
 		'AI-Driven Investor Relations'
 	];
 
