@@ -560,6 +560,18 @@ ul { margin: 0; padding: 0; list-style: none; }
 .timeline-org a { color: inherit; }
 .timeline-org a:hover { color: var(--accent); }
 
+.portfolio-note {
+	margin: 22px 0 0;
+	padding: 18px 22px;
+	border: 1px solid var(--line-soft);
+	border-left: 3px solid var(--accent-2);
+	border-radius: var(--radius);
+	background-color: var(--surface-2);
+	color: var(--text-muted);
+	font-size: 0.95rem;
+}
+.portfolio-note strong { color: var(--text); }
+
 .now-strip {
 	display: grid;
 	grid-template-columns: 1fr;
