@@ -997,6 +997,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 	margin-bottom: 6px;
 }
 .footer-brand span { color: var(--accent); }
+.footer-entity {
+	color: var(--text-dim);
+	font-size: 0.82rem;
+	margin: 6px 0 0;
+}
+
 .footer-tag {
 	color: var(--text-dim);
 	font-size: 0.92rem;

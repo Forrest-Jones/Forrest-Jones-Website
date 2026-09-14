@@ -149,6 +149,39 @@
 		sections.forEach(function (section) { spy.observe(section); });
 	}
 
+	/* ---------- Lazy video ----------
+	   The Blessing Machine clip is large, so it is only fetched once the card is
+	   near the viewport. The poster shows until then. */
+
+	var lazyVideos = document.querySelectorAll('video.lazy-video');
+
+	function loadVideo(video) {
+		if (video.dataset.loaded) return;
+		video.dataset.loaded = '1';
+		var source = document.createElement('source');
+		source.src = video.dataset.src;
+		source.type = 'video/mp4';
+		video.appendChild(source);
+		video.load();
+		if (!reduceMotion) {
+			var attempt = video.play();
+			if (attempt && attempt.catch) attempt.catch(function () { /* autoplay blocked */ });
+		}
+	}
+
+	if ('IntersectionObserver' in window) {
+		var videoObserver = new IntersectionObserver(function (entries) {
+			entries.forEach(function (entry) {
+				if (!entry.isIntersecting) return;
+				loadVideo(entry.target);
+				videoObserver.unobserve(entry.target);
+			});
+		}, { rootMargin: '200px' });
+		lazyVideos.forEach(function (video) { videoObserver.observe(video); });
+	} else {
+		lazyVideos.forEach(loadVideo);
+	}
+
 	/* ---------- Booking links ----------
 	   Set BOOKING_URL to your Calendly / cal.com / Google appointment link and every
 	   "Book a call" button points there. Left empty, they fall back to a pre-filled email. */
