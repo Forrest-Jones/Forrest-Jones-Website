@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://forrest-jones.github.io/Forrest-Jones-Website/sitemap.xml
+Sitemap: https://www.proverbs1821.com/sitemap.xml

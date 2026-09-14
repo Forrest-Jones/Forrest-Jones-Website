@@ -3,7 +3,7 @@
 Personal site for Forrest Jones: Chief Investment Officer, fractional Chief Financial
 Officer, and Reg D capital-formation lead who builds the technology that runs the raise.
 
-**Live:** https://forrest-jones.github.io/Forrest-Jones-Website/
+**Live:** https://www.proverbs1821.com
 
 ## Stack
 
@@ -104,21 +104,33 @@ to every visitor.
 
 ## Custom domain
 
-1. Buy the domain and, at the registrar, add these DNS records:
-   - `A` records for the apex (`@`) pointing to `185.199.108.153`,
-     `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `CNAME` record for `www` pointing to `forrest-jones.github.io`
-2. In the repo settings → Pages → Custom domain, enter the domain and save.
-   GitHub adds a `CNAME` file to the repo; commit it. Tick "Enforce HTTPS" once
-   the certificate is issued (usually within an hour).
-3. Update every absolute URL in one pass (canonical, Open Graph, JSON-LD,
-   sitemap, robots, and the 404 page):
+The site is served at **https://www.proverbs1821.com** via GitHub Pages.
 
-   ```bash
-   grep -rl 'forrest-jones.github.io/Forrest-Jones-Website' index.html 404.html robots.txt sitemap.xml \
-     | xargs sed -i 's#https://forrest-jones.github.io/Forrest-Jones-Website#https://www.yourdomain.com#g'
-   ```
+DNS at Namecheap:
 
-Do not add a `CNAME` file before the DNS records exist; Pages will start
-redirecting to the new domain immediately and the site will go dark until DNS
-resolves.
+| Type | Host | Value |
+| --- | --- | --- |
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| CNAME | `www` | `forrest-jones.github.io.` |
+
+The `CNAME` file in this repository holds `www.proverbs1821.com`, which is what
+tells Pages which domain to answer to. The apex redirects to `www`.
+
+Reverting is straightforward: delete the `CNAME` file and the site is served at
+`forrest-jones.github.io/Forrest-Jones-Website` again. Browsers cache the
+redirect, so an old tab may keep resolving to the custom domain for a while.
+
+If the domain ever changes, update the absolute URLs in one pass — canonical,
+Open Graph, Twitter, JSON-LD, `sitemap.xml`, `robots.txt`, and `404.html`:
+
+```bash
+grep -rl 'www.proverbs1821.com' index.html 404.html robots.txt sitemap.xml \
+  | xargs sed -i 's#https://www.proverbs1821.com#https://www.newdomain.com#g'
+```
+
+Never add or change the `CNAME` file before the DNS records resolve to GitHub.
+Pages starts redirecting immediately, and the site goes dark until DNS catches
+up.
