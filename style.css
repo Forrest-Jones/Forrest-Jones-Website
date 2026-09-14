@@ -1326,7 +1326,16 @@ ul { margin: 0; padding: 0; list-style: none; }
 @media (min-width: 960px) {
 	.service-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 	.contact-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-	.portfolio-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+	/* Flex rather than grid so an incomplete final row centres instead of
+	   stranding a lone card against the left edge. */
+	.portfolio-grid {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.portfolio-grid > .portfolio-card {
+		flex: 0 1 calc((100% - 2 * 18px) / 3);
+	}
 	.now-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 	.testimonial-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 	.timeline { padding-left: 34px; }
