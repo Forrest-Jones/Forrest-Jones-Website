@@ -993,6 +993,22 @@ ul { margin: 0; padding: 0; list-style: none; }
 	margin-top: -2px;
 }
 
+/* Paperback cover on the Three languages card */
+.lang-book-cover {
+	display: block;
+	width: 120px;
+	margin-top: 18px;
+	border-radius: 4px;
+	overflow: hidden;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+	transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.lang-book-cover img { width: 100%; height: auto; }
+.lang-book-cover:hover {
+	transform: translateY(-3px) rotate(-1deg);
+	box-shadow: 0 12px 26px rgba(0, 0, 0, 0.5);
+}
+
 /* Art thumbnails on the Drawing & painting card */
 .art-grid {
 	display: grid;
