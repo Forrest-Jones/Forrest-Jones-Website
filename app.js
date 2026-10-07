@@ -421,6 +421,141 @@
 		if (event.key === 'Escape') closeLightbox();
 	});
 
+	/* ---------- Art gallery: thumbnails on the Drawing & painting card ---------- */
+
+	var gallery = document.getElementById('gallery');
+	var artThumbs = Array.prototype.slice.call(document.querySelectorAll('.art-thumb'));
+
+	if (gallery && artThumbs.length) {
+		var gImg = document.getElementById('gallery-img');
+		var gTitle = document.getElementById('gallery-title');
+		var gMeta = document.getElementById('gallery-meta');
+		var gCount = document.getElementById('gallery-count');
+		var gPrev = document.getElementById('gallery-prev');
+		var gNext = document.getElementById('gallery-next');
+		var gClose = document.getElementById('gallery-close');
+		var current = 0;
+		var galleryFocus = null;
+
+		// The thumbnails in the card are the source of truth for the gallery.
+		var works = artThumbs.map(function (a) {
+			var img = a.querySelector('img');
+			return {
+				src: a.getAttribute('href'),
+				title: a.dataset.title || '',
+				meta: a.dataset.meta || '',
+				alt: img ? img.alt : '',
+				w: a.dataset.w,
+				h: a.dataset.h
+			};
+		});
+		var multiple = works.length > 1;
+		gPrev.hidden = !multiple;
+		gNext.hidden = !multiple;
+
+		// Past six pieces, the sixth tile says how many more the gallery holds.
+		var VISIBLE = 6;
+		if (works.length > VISIBLE) {
+			artThumbs[VISIBLE - 1].setAttribute('data-more', '+' + (works.length - VISIBLE + 1));
+			artThumbs.slice(VISIBLE).forEach(function (a) {
+				a.parentNode.classList.add('art-overflow');
+			});
+		}
+
+		var wrap = function (i) { return (i + works.length) % works.length; };
+
+		var showWork = function (i) {
+			current = wrap(i);
+			var w = works[current];
+			if (w.w && w.h) {
+				gImg.width = Number(w.w);
+				gImg.height = Number(w.h);
+			}
+			gImg.src = w.src;
+			gImg.alt = w.alt;
+			gTitle.textContent = w.title;
+			gTitle.hidden = !w.title;
+			gMeta.textContent = w.meta;
+			gMeta.hidden = !w.meta;
+			gCount.textContent = multiple ? (current + 1) + ' / ' + works.length : '';
+			if (multiple) {
+				// Warm the neighbours so next and previous feel instant.
+				new Image().src = works[wrap(current + 1)].src;
+				new Image().src = works[wrap(current - 1)].src;
+			}
+		};
+
+		var openGallery = function (i) {
+			galleryFocus = document.activeElement;
+			showWork(i);
+			gallery.hidden = false;
+			document.body.style.overflow = 'hidden';
+			gClose.focus();
+		};
+
+		var closeGallery = function () {
+			if (gallery.hidden) return;
+			gallery.hidden = true;
+			document.body.style.overflow = '';
+			if (galleryFocus && galleryFocus.focus) galleryFocus.focus();
+		};
+
+		artThumbs.forEach(function (a, i) {
+			a.addEventListener('click', function (event) {
+				event.preventDefault();
+				openGallery(i);
+			});
+		});
+		document.querySelectorAll('[data-gallery-open]').forEach(function (a) {
+			a.addEventListener('click', function (event) {
+				event.preventDefault();
+				openGallery(0);
+			});
+		});
+
+		gPrev.addEventListener('click', function () { showWork(current - 1); });
+		gNext.addEventListener('click', function () { showWork(current + 1); });
+		gClose.addEventListener('click', closeGallery);
+		gallery.addEventListener('click', function (event) {
+			if (event.target === gallery) closeGallery();
+		});
+
+		document.addEventListener('keydown', function (event) {
+			if (gallery.hidden) return;
+			if (event.key === 'Escape') {
+				closeGallery();
+			} else if (event.key === 'ArrowLeft' && multiple) {
+				showWork(current - 1);
+			} else if (event.key === 'ArrowRight' && multiple) {
+				showWork(current + 1);
+			} else if (event.key === 'Tab') {
+				// Keep keyboard focus inside the open dialog.
+				var stops = [gClose, gPrev, gNext].filter(function (b) { return !b.hidden; });
+				var at = stops.indexOf(document.activeElement);
+				event.preventDefault();
+				stops[(at + (event.shiftKey ? -1 : 1) + stops.length) % stops.length].focus();
+			}
+		});
+
+		// Swipe left or right on touch screens.
+		var startX = null;
+		var startY = null;
+		gallery.addEventListener('touchstart', function (event) {
+			if (event.touches.length !== 1) return;
+			startX = event.touches[0].clientX;
+			startY = event.touches[0].clientY;
+		}, { passive: true });
+		gallery.addEventListener('touchend', function (event) {
+			if (startX === null || !multiple) return;
+			var dx = event.changedTouches[0].clientX - startX;
+			var dy = event.changedTouches[0].clientY - startY;
+			startX = null;
+			if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+				showWork(current + (dx < 0 ? 1 : -1));
+			}
+		}, { passive: true });
+	}
+
 	/* ---------- Footer year ---------- */
 
 	var year = document.getElementById('year');

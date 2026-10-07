@@ -855,8 +855,13 @@
           <article class="interest-card reveal">
             <p class="interest-glyph" aria-hidden="true">✎</p>
             <h3>Drawing &amp; painting</h3>
-            <p>Studied drawing and painting at the University of North Texas. The original drawing in the footer of this page is mine — tap the stamp to see it.</p>
-            <p class="interest-link"><a href="#footer">See the artwork <span aria-hidden="true">&rarr;</span></a></p>
+            <p>Studied drawing and painting at the University of North Texas. A few of my stronger pieces are below. The drawing hidden in the footer stamp is mine too.</p>
+            <ul class="art-grid" aria-label="Selected artwork">
+              <li><a class="art-thumb" href="img/art/jesus.jpg" data-title="Jesus" data-meta="Original drawing" data-w="1049" data-h="1048">
+                <img src="img/art/thumbs/jesus.jpg" alt="Original drawing of Jesus Christ" width="400" height="400" loading="lazy" decoding="async">
+              </a></li>
+            </ul>
+            <p class="interest-link"><a href="img/art/jesus.jpg" data-gallery-open>Open the gallery <span aria-hidden="true">&rarr;</span></a></p>
           </article>
           <article class="interest-card reveal">
             <p class="interest-glyph" aria-hidden="true">文</p>
@@ -1034,6 +1039,24 @@
           width="1049" height="1048" decoding="async">
         <figcaption>Original drawing by Forrest Jones</figcaption>
       </figure>
+    </div>
+
+    <div class="lightbox gallery" id="gallery" role="dialog" aria-modal="true" aria-label="Artwork gallery" hidden>
+      <button class="lightbox-close" id="gallery-close" type="button" aria-label="Close gallery">&times;</button>
+      <button class="gallery-nav gallery-prev" id="gallery-prev" type="button" aria-label="Previous artwork">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <figure class="lightbox-figure gallery-figure">
+        <img id="gallery-img" alt="" decoding="async">
+        <figcaption aria-live="polite">
+          <strong id="gallery-title"></strong>
+          <span id="gallery-meta"></span>
+          <span class="gallery-count" id="gallery-count"></span>
+        </figcaption>
+      </figure>
+      <button class="gallery-nav gallery-next" id="gallery-next" type="button" aria-label="Next artwork">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
     </div>
   </footer>
 
