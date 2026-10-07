@@ -852,6 +852,95 @@ ul { margin: 0; padding: 0; list-style: none; }
 	text-align: center;
 }
 
+/* ---------- Featured project ---------- */
+
+.project-card--featured {
+	grid-column: 1 / -1;
+}
+.project-card--featured .project-media {
+	aspect-ratio: 1024 / 500;
+	/* The art carries its own title text, so it is shown whole rather than
+	   cropped; any spare frame is filled with the graphic's own gradient. */
+	background: linear-gradient(90deg, #2b7349 0%, #1f553a 50%, #10291c 100%);
+}
+.project-card--featured .project-media::after { display: none; }
+.project-card--featured .project-media img {
+	object-fit: contain;
+}
+.project-card--featured:hover .project-media img { transform: none; }
+.project-desc {
+	color: var(--text-muted);
+	font-size: 0.95rem;
+	margin: 0 0 6px;
+	max-width: 62ch;
+}
+.project-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px 24px;
+	margin: 0;
+}
+
+/* ---------- Off the clock ---------- */
+
+.interests {
+	margin-top: 72px;
+	padding-top: 56px;
+	border-top: 1px solid var(--line-soft);
+}
+.interests-title {
+	font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+}
+.interest-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 18px;
+}
+.interest-card {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--surface);
+	border: 1px solid var(--line-soft);
+	border-radius: var(--radius-lg);
+	padding: 26px 24px;
+}
+.interest-card--books {
+	border-color: rgba(0, 211, 167, 0.35);
+}
+.interest-glyph {
+	font-family: var(--font-display);
+	font-size: 1.9rem;
+	line-height: 1;
+	color: var(--accent);
+	margin: 0 0 14px;
+}
+.interest-card h3 {
+	font-size: 1.12rem;
+	margin-bottom: 6px;
+}
+.interest-title {
+	color: var(--accent);
+	font-size: 0.95rem;
+	margin-bottom: 8px;
+}
+.interest-title cite { font-style: italic; }
+.interest-card p:not(.interest-glyph):not(.interest-title):not(.interest-link) {
+	color: var(--text-muted);
+	font-size: 0.93rem;
+}
+.interest-link {
+	margin: auto 0 0;
+	padding-top: 10px;
+	min-height: 44px;
+	display: flex;
+	align-items: flex-end;
+}
+.interest-link a {
+	font-family: var(--font-display);
+	font-weight: 600;
+	font-size: 0.9rem;
+}
+
 /* ---------- About ---------- */
 
 .about {
@@ -1330,6 +1419,19 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 @media (min-width: 960px) {
+	.project-card--featured {
+		flex-direction: row;
+	}
+	.project-card--featured .project-media {
+		flex: 0 0 54%;
+		aspect-ratio: auto;
+		min-height: 320px;
+	}
+	.project-card--featured .project-body {
+		align-self: center;
+		padding: 34px 36px;
+	}
+	.interest-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 	.service-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 	.contact-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 	/* Flex rather than grid so an incomplete final row centres instead of
