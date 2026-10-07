@@ -928,6 +928,29 @@ ul { margin: 0; padding: 0; list-style: none; }
 	color: var(--text-muted);
 	font-size: 0.93rem;
 }
+.book-list {
+	display: grid;
+	gap: 16px;
+	margin-top: 4px;
+}
+.book-list li {
+	display: grid;
+	gap: 4px;
+}
+.book-list a {
+	display: inline-block;
+	padding: 4px 0;
+	font-family: var(--font-display);
+	font-weight: 600;
+	font-size: 1rem;
+	line-height: 1.35;
+}
+.book-list a cite { font-style: italic; }
+.book-list span:not([aria-hidden]) {
+	color: var(--text-muted);
+	font-size: 0.88rem;
+	line-height: 1.5;
+}
 .interest-link {
 	margin: auto 0 0;
 	padding-top: 10px;
@@ -936,6 +959,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 	align-items: flex-end;
 }
 .interest-link a {
+	display: inline-block;
+	padding: 12px 0;
 	font-family: var(--font-display);
 	font-weight: 600;
 	font-size: 0.9rem;
