@@ -946,6 +946,40 @@ ul { margin: 0; padding: 0; list-style: none; }
 	line-height: 1.35;
 }
 .book-list a cite { font-style: italic; }
+.book-list li.has-cover {
+	grid-template-columns: 72px 1fr;
+	align-items: start;
+	gap: 14px;
+}
+.book-text {
+	display: grid;
+	gap: 4px;
+	min-width: 0;
+}
+.book-list a.book-cover {
+	display: block;
+	padding: 0;
+	width: 72px;
+	aspect-ratio: 2 / 3;
+	border-radius: 4px;
+	overflow: hidden;
+	background-color: var(--surface-2);
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+	transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.book-cover img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+/* With JS running, a cover only shows once it is confirmed real. */
+.js .book-cover img { opacity: 0; transition: opacity 0.3s var(--ease); }
+.js .book.cover-ok .book-cover img { opacity: 1; }
+.book.cover-ok a.book-cover:hover {
+	transform: translateY(-2px) rotate(-1deg);
+	box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
+}
+.book.no-cover .book-cover { display: none; }
 .book-list span:not([aria-hidden]) {
 	color: var(--text-muted);
 	font-size: 0.88rem;

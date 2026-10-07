@@ -182,6 +182,42 @@
 		lazyVideos.forEach(loadVideo);
 	}
 
+	/* ---------- Book covers ----------
+	   Covers load from Amazon's image service by ASIN. When Amazon has no image
+	   it answers with a 1x1 placeholder rather than an error, so a cover counts
+	   as good only if it decodes at real size. One alternate URL is tried, then
+	   the cover slot is removed and the entry falls back to text. */
+
+	document.querySelectorAll('img[data-cover]').forEach(function (img) {
+		var book = img.closest('.book');
+		if (!book) return;
+		var triedAlt = false;
+
+		function settle() {
+			if (img.naturalWidth >= 40 && img.naturalHeight >= 40) {
+				book.classList.add('cover-ok');
+				return;
+			}
+			retryOrDrop();
+		}
+
+		function retryOrDrop() {
+			if (!triedAlt && img.dataset.coverAlt) {
+				triedAlt = true;
+				img.src = img.dataset.coverAlt;
+				return;
+			}
+			book.classList.remove('has-cover');
+			book.classList.add('no-cover');
+		}
+
+		img.addEventListener('load', settle);
+		img.addEventListener('error', retryOrDrop);
+		if (img.complete && img.currentSrc) {
+			if (img.naturalWidth) settle(); else retryOrDrop();
+		}
+	});
+
 	/* ---------- Booking links ----------
 	   Set BOOKING_URL to your Calendly / cal.com / Google appointment link and every
 	   "Book a call" button points there. Left empty, they fall back to a pre-filled email. */
