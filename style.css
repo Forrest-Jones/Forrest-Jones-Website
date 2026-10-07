@@ -951,6 +951,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 	font-size: 0.88rem;
 	line-height: 1.5;
 }
+.book-list span.book-subtitle {
+	color: var(--text);
+	font-family: var(--font-display);
+	font-style: italic;
+	font-size: 0.92rem;
+	margin-top: -2px;
+}
+
 .interest-link {
 	margin: auto 0 0;
 	padding-top: 10px;
