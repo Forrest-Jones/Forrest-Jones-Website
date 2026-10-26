@@ -504,7 +504,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .chips li:hover { color: var(--accent); border-color: var(--accent); }
 
-/* ---------- Portfolio (current CFO seats) ---------- */
+/* ---------- Portfolio (current CFO/CTO seats) ---------- */
 
 .portfolio-grid {
 	display: grid;

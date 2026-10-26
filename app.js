@@ -292,7 +292,7 @@
 	var rotator = document.getElementById('role-rotator');
 	var roles = [
 		'Chief Investment Officer',
-		'Chief Financial Officer',
+		'CFO/CTO',
 		'Founder & CEO, Proverbs 1821',
 		'Head of Capital Formation',
 		'Hedge Fund Manager, CHFP',
@@ -300,9 +300,11 @@
 	];
 
 	if (rotator && !reduceMotion) {
-		var roleIndex = 0;
-		var charIndex = roles[0].length;
-		var deleting = false;
+		// Start from the role already in the markup, fully typed, so the
+		// first tick begins erasing it instead of counting past its end.
+		var roleIndex = Math.max(0, roles.indexOf(rotator.textContent.trim()));
+		var charIndex = roles[roleIndex].length;
+		var deleting = true;
 
 		var tick = function () {
 			var word = roles[roleIndex];

@@ -1,0 +1,268 @@
+<!doctype html>
+<!--
+  Source for img/Forrest-Jones-Resume-Web.pdf.
+  Rebuild the PDF with: node tools/resume/build.js
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Forrest Jones — Résumé</title>
+<style>
+  @page { size: Letter; margin: 0.6in 0.6in 0.62in; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Liberation Sans", Arial, Helvetica, sans-serif;
+    font-size: 12.33px;
+    line-height: 1.46;
+    color: #16202a;
+  }
+  b, strong { color: #0e1a24; }
+
+  .name {
+    font-size: 31.2px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #0e1a24;
+    line-height: 1.1;
+  }
+  .headline {
+    margin-top: 7.5px;
+    font-size: 12.33px;
+    font-weight: 700;
+    color: #1f4e78;
+    line-height: 1.45;
+    word-spacing: 0.04em;
+  }
+  .contact {
+    margin-top: 5.5px;
+    font-size: 12px;
+    color: #41525e;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #1f4e78;
+  }
+
+  h2 {
+    margin-top: 18px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #c9d2da;
+    font-size: 14.2px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #1f4e78;
+    break-after: avoid;
+  }
+  .summary { margin-top: 5px; text-align: justify; }
+
+  .comp { margin-top: 5px; }
+  .comp p, .stack p, .edu p { font-size: 12.8px; line-height: 1.39; }
+  .comp p { margin-bottom: 5.3px; break-inside: avoid; }
+
+  .page-break { break-before: page; }
+  header + section h2 { margin-top: 11px; }
+  .page-break h2 { margin-top: 0; }
+
+  .job { margin-top: 7px; break-inside: avoid; }
+  .job:first-of-type { margin-top: 4px; }
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .job-title { font-size: 13.18px; font-weight: 700; color: #0e1a24; }
+  .job-date { flex: none; font-size: 11.44px; font-weight: 700; color: #596a79; }
+  .org { font-style: italic; color: #1f4e78; }
+  .job ul { margin-top: 2.7px; padding-left: 18px; list-style: none; }
+  .job li { position: relative; margin-bottom: 5.6px; font-size: 12.8px; line-height: 1.39; }
+  .job li::before {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 0.58em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #1f4e78;
+  }
+  .note { font-size: 11.44px; font-style: italic; color: #596a79; }
+
+  .stack { margin-top: 5px; }
+  .stack p { margin-bottom: 5px; break-inside: avoid; }
+  .edu p { break-inside: avoid; }
+  .edu { margin-top: 5px; }
+  .edu p { margin-bottom: 7px; }
+  .edu .where { color: #1f4e78; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1 class="name">FORREST JONES</h1>
+  <p class="headline">Chief Investment Officer &nbsp;|&nbsp; Chief Financial Officer / Chief Technology Officer &nbsp;|&nbsp; Founder &amp; CEO, Proverbs 1821 Consulting &nbsp;|&nbsp; Head of Capital Formation &nbsp;|&nbsp; Hedge Fund Manager, CHFP &nbsp;|&nbsp; AI-Driven Investor Relations</p>
+  <p class="contact">Montgomery, TX &nbsp;·&nbsp; (832) 562-1355 &nbsp;·&nbsp; forrestjones2010@gmail.com &nbsp;·&nbsp; linkedin.com/in/forrest-jones-b86a24235</p>
+</header>
+
+<section>
+  <h2>Professional Summary</h2>
+  <p class="summary">Senior capital markets executive and Head of Capital Formation with 30+ years driving investor relations, Reg D 506(b)/506(c) capital raises, and revenue operations across oil &amp; gas, real estate, private equity, and government-backed contracts. Personally responsible for $10B+ in capital raised — $9B in the public markets and $1B in private equity and venture capital, spread across 40 companies, some now public and some still private. Currently serves as Chief Investment Officer across the Blackwater group (Investment Group, Evaluations Group, and Forensics), as founder and Chief Executive Officer of Proverbs 1821 Consulting LLC (est. 2004 as International Asset Solutions), and as CFO/CTO for six active portfolio companies — Ares Robotics, Genvor, The Oasis of Texas, US Standard Capital, Solomon Energy of Texas, and Colossus Strategic Holdings — providing continuous financial leadership across multi-industry capital structures, with the flexibility to engage in a fractional CFO/CTO capacity when the contract calls for it. Brings hedge fund manager-level discipline as a Certified Hedge Fund Professional (CHFP) to fund structuring, LP/GP relations, and capital allocation. Classically trained programmer since 1996 with a recent (2022) AI Software Engineering degree from The Flatiron School (NYC), and fluent in deploying Claude (Anthropic) integrations, GoHighLevel automation, and Meta Ads at scale to compress sales cycles and accelerate accredited investor acquisition. Operates as a full-stack capital markets professional — equally credible across the deal table, the dialer, and the codebase.</p>
+</section>
+
+<section>
+  <h2>Core Competencies</h2>
+  <div class="comp">
+    <p><b>Capital Formation &amp; Investor Relations Leadership</b> — Reg D 506(b)/506(c) offerings, PPM structuring, accredited investor targeting</p>
+    <p><b>Investor Operations &amp; Multi-Mandate Capital Raising</b> — Concurrent sponsor engagements, pipeline management, cross-firm compliance coordination</p>
+    <p><b>Hedge Fund Management &amp; Fund Operations (CHFP)</b> — Fund structuring, LP/GP relations, capital allocation, investor reporting</p>
+    <p><b>AI-Powered Sales &amp; IR Operations</b> — Claude Code + HighLevel MCP agent workspace (five slash-command agents under a written approval policy), SEC EDGAR Form D prospect scraper, docx investor-document engine, AI notetaking</p>
+    <p><b>MarTech &amp; Automation Stack</b> — GoHighLevel Power Dialer, smart lists, workflows, API tokens; Meta Ads campaign architecture &amp; lead gen</p>
+    <p><b>Full-Stack Software Development (since 1996)</b> — CRM builds, sales automation, data pipelines, API integrations</p>
+    <p><b>Energy &amp; Real Estate Capital Markets</b> — Oil &amp; gas offerings (20+ yrs), real estate PPMs (25+ yrs), private equity funds</p>
+    <p><b>HNW / UHNW &amp; Institutional Relationships</b> — Family offices, federal employee TSP rollover strategies, repeat investor programs</p>
+    <p><b>CFO/CTO Leadership</b> — Concurrent CFO/CTO engagements across 6 portfolio companies; financial strategy, capital structure, investor reporting; available in fractional capacity</p>
+    <p><b>Federal Contracting &amp; Teaming</b> — SAM.gov registered with CAGE code and UEI (NAICS 541611, 562/811-series); sam-gov MCP opportunity monitoring; capture strategy, teaming, and proposal development across DoD, DOE, DOJ and other agencies</p>
+    <p><b>Sales Leadership &amp; Call Center Operations</b> — Several fully operational call centers, US-based and international as the mandate requires; team building, KPI operations, B2B / B2C / institutional channels, fractional executive engagements</p>
+    <p><b>Languages</b> — English (native), Mandarin Chinese (fluent), Spanish (fluent)</p>
+  </div>
+</section>
+
+<section class="page-break">
+  <h2>Professional Experience</h2>
+
+  <div class="job">
+    <div class="job-head"><span class="job-title">Chief Financial Officer / Chief Technology Officer</span><span class="job-date">May 2026 – Present</span></div>
+    <p class="org">Ares Robotics</p>
+    <ul>
+      <li>Lead an active $10MM raise, owning investor targeting, materials, and the close.</li>
+      <li>Serve as full CFO/CTO — financial strategy, capital structure, reporting cadence, and investor communications.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head"><span class="job-title">Capital Formation Lead</span><span class="job-date">2026 – Present</span></div>
+    <p class="org">Engage60</p>
+    <ul>
+      <li>Lead a $1MM pre-seed raise for a short-form civic video platform — 60-second civic content with debate features, positioned for the 2028 election cycle.</li>
+      <li>Investor targeting, materials, and close for a pre-seed round with a 10K-person waitlist already in place.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head"><span class="job-title">Chief Investment Officer</span><span class="job-date">2025 – Present</span></div>
+    <p class="org">Blackwater Investment Group, Inc. · Blackwater Evaluations Group · Blackwater Forensics</p>
+    <ul>
+      <li>Lead capital formation strategy for active Reg D 506(c) Series A Preferred offering, owning PPM structuring, investor targeting, and end-to-end raise execution.</li>
+      <li>Architect and operate the firm's accredited investor acquisition engine in GoHighLevel — Power Dialer, segmented Houston-area smart lists, automated nurture workflows, and Private Integration Token API access.</li>
+      <li>Deploy Meta Ads campaigns under 506(c) general solicitation rules, targeting niche accredited investor segments including federal employee TSP rollover prospects.</li>
+      <li>Embed Anthropic Claude across the IR workflow — drafting offering language, qualifying investor inquiries, and accelerating document review cycles.</li>
+      <li>Coordinate legal, compliance, and document infrastructure for an institutional-grade offering package targeting high-net-worth and ultra-high-net-worth investors.</li>
+      <li>The Blackwater Evaluation division delivers federally mandated third-party program evaluation for DoD, NASA, NSF, NIH and DOE-funded institutions (~65 cumulative contracts).</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head"><span class="job-title">Investor Operations &amp; Capital Raiser</span><span class="job-date">2024 – Present</span></div>
+    <p class="org">Industry FinTech — Florida</p>
+    <ul>
+      <li>Engaged through Industry FinTech to execute capital raises across multiple investor relations contracts, building a proven track record of deployed capital and successful closings.</li>
+      <li>Operate as a contract capital raiser supporting multiple sponsor mandates simultaneously — managing investor pipelines, qualification, and closing across distinct offerings.</li>
+      <li>Coordinate cross-firm investor operations, balancing compliance, communications, and reporting standards across multiple concurrent engagements.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head"><span class="job-title">Senior Director of Investor Relations</span><span class="job-date">Jan 2026 – Present</span></div>
+    <p class="org">MH Development</p>
+    <ul>
+      <li>Lead investor relations and capital-raising strategy for active development initiatives in a fractional executive capacity.</li>
+      <li>Manage investor pipeline development, communications cadence, and funding execution end-to-end.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head"><span class="job-title">Senior Director of Investor Relations | Chief Financial Officer / Chief Technology Officer</span><span class="job-date">Jun 2025 – Present</span></div>
+    <p class="org">Colossus Strategic Holdings</p>
+    <ul>
+      <li>Raised $10MM in capital within first six months by executing multi-channel capital-raising campaigns.</li>
+      <li>Owned investor onboarding, compliance coordination, and ongoing investor communications.</li>
+      <li>Serve as full CFO/CTO — overseeing financial strategy, reporting, and capital structure; <span class="note">available in a fractional CFO/CTO capacity when contract terms call for it.</span></li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head"><span class="job-title">Senior Director of Investor Relations | Chief Financial Officer / Chief Technology Officer</span><span class="job-date">Oct 2025 – Present</span></div>
+    <p class="org">Solomon Energy of Texas LLC</p>
+    <ul>
+      <li>Funded $5MM in 60 days for energy-focused investment initiatives.</li>
+      <li>Supported deal structuring, investor targeting, and capital deployment strategy.</li>
+      <li>Serve as full CFO/CTO — directing financial operations, capital allocation, and investor reporting; <span class="note">functions in a fractional CFO/CTO capacity when the engagement calls for it.</span></li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head"><span class="job-title">Investor Relations Manager | Chief Financial Officer / Chief Technology Officer</span><span class="job-date">Jan 2025 – Present</span></div>
+    <p class="org">US Standard Capital</p>
+    <ul>
+      <li>Lead investor relations for active private offerings.</li>
+      <li>Manage prospect pipelines, accredited investor qualification, and closing process.</li>
+      <li>Serve as full CFO/CTO — providing financial leadership, reporting cadence, and capital strategy; <span class="note">available in a fractional CFO/CTO capacity when contract terms call for it.</span></li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head"><span class="job-title">Director of Investor Relations | Chief Financial Officer / Chief Technology Officer</span><span class="job-date">2018 – Present</span></div>
+    <p class="org">The Oasis of Texas</p>
+    <ul>
+      <li>Direct investor relations and capital-raising strategy for large-scale real estate projects.</li>
+      <li>Maintain long-term investor relationships and high repeat-investment participation.</li>
+      <li>Serve as full CFO/CTO across an 8-year continuous engagement — overseeing financial operations, project capital structure, and investor reporting; <span class="note">functions in a fractional CFO/CTO capacity when the engagement calls for it.</span></li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head"><span class="job-title">Director of Investor Relations | Chief Financial Officer / Chief Technology Officer</span><span class="job-date">2016 – Present</span></div>
+    <p class="org">Genvor</p>
+    <ul>
+      <li>Led the initial capital raise on the team that took Genvor public (IPO exit, GNVR); the team won Bayer's first Golden Ticket award for AMP agbiotech IP.</li>
+      <li>Coordinated investor communications and fundraising milestones across the offering lifecycle.</li>
+      <li>Serve as full CFO/CTO across a 10-year continuous engagement spanning private capital and public-market transitions; <span class="note">available in a fractional CFO/CTO capacity when the contract calls for it.</span></li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head"><span class="job-title">Founder &amp; Chief Executive Officer</span><span class="job-date">2004 – Present</span></div>
+    <p class="org">Proverbs 1821 Consulting LLC · founded 2004 as International Asset Solutions</p>
+    <ul>
+      <li>The firm traces its roots to 2004, when it was founded as International Asset Solutions; it operates today as Proverbs 1821 Consulting LLC.</li>
+      <li>Founded and lead the umbrella entity through which fractional CFO/CTO and Chief Investment Officer engagements are contracted and administered, consolidating multi-client advisory work under a single operating structure.</li>
+      <li>Operate the firm as a registered federal contractor, holding its own SAM.gov registration, CAGE code, and Unique Entity ID (UEI).</li>
+      <li>Partner with specialist firms — roofing and building trades, hazardous waste removal, and environmental evaluation among them — to pursue federal work they are not positioned to bid on alone, serving as the contracting vehicle and capture partner.</li>
+      <li>Lead capture strategy, teaming arrangements, and proposal development for solicitations across DoD, DOE, DOJ, and other federal agencies.</li>
+      <li>Bring partner firms into alignment with registration, compliance, and past-performance requirements so skilled operators compete on trade expertise rather than paperwork.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Technology &amp; AI Stack</h2>
+  <div class="stack">
+    <p><b>AI / LLM:</b> Anthropic Claude (Messages API, Claude Code, MCP servers, Remote Control), OpenAI GPT (API since 2021), open-weight models via Ollama / Open WebUI; prompt architecture, tool use, RAG, evaluation and guardrails; AI notetakers (Fathom, Otter.ai, Plaud)</p>
+    <p><b>CRM &amp; Automation:</b> GoHighLevel (Power Dialer, Smart Lists, Workflows, Snapshots, PIT API), Twilio / LeadConnector</p>
+    <p><b>Paid Media:</b> Meta Ads Manager (campaign architecture, audience targeting, lead-gen funnels under 506(c) rules)</p>
+    <p><b>Development:</b> Full-stack programming since 1996; AI Software Engineering degree — Flatiron School, NYC (2022); CRM, sales automation, and data systems builds</p>
+  </div>
+</section>
+
+<section>
+  <h2>Education, Certifications &amp; Training</h2>
+  <div class="edu">
+    <p><b>Certified Hedge Fund Professional (CHFP)</b> — <span class="where">Hedge Fund Group</span> · Industry-recognized designation in hedge fund strategy, structuring, and operations</p>
+    <p><b>AI Software Engineering Degree (2022)</b> — <span class="where">The Flatiron School, New York, NY</span> · Classical training in applied AI and full-stack engineering</p>
+    <p><b>B.S., Computer Science</b> — <span class="where">Lamar University, Beaumont, TX (2006)</span></p>
+    <p><b>Continuous Self-Directed Development</b> — <span class="where">Programming since 1996</span> · Ongoing study in capital markets, AI integration, and automation tooling</p>
+  </div>
+</section>
+
+</body>
+</html>

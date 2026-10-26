@@ -1,7 +1,7 @@
 # Forrest Jones — Personal Site
 
-Personal site for Forrest Jones: Chief Investment Officer, fractional Chief Financial
-Officer, and Reg D capital-formation lead who builds the technology that runs the raise.
+Personal site for Forrest Jones: Chief Investment Officer, fractional CFO/CTO
+(Chief Financial Officer and Chief Technology Officer), and Reg D capital-formation lead who builds the technology that runs the raise.
 
 **Live:** https://www.proverbs1821.com
 
