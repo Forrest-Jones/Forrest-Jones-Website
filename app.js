@@ -291,9 +291,8 @@
 
 	var rotator = document.getElementById('role-rotator');
 	var roles = [
-		'Chief Investment Officer',
-		'CFO/CTO',
-		'Founder & CEO, Proverbs 1821',
+		'Structuring consultant',
+		'Structuring consultant, Proverbs 1821',
 		'Head of Capital Formation',
 		'Hedge Fund Manager, CHFP',
 		'AI-Driven Investor Relations'

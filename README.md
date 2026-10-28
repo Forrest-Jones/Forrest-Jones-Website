@@ -1,7 +1,7 @@
 # Forrest Jones — Personal Site
 
-Personal site for Forrest Jones: Chief Investment Officer, fractional CFO/CTO
-(Chief Financial Officer and Chief Technology Officer), and Reg D capital-formation lead who builds the technology that runs the raise.
+Personal site for Forrest Jones: capital markets professional, structuring consultant,
+and Reg D capital-formation lead who builds the technology that runs the raise.
 
 **Live:** https://www.proverbs1821.com
 
@@ -87,10 +87,9 @@ use a different code, change that one `data-goatcounter` URL.
   `style.css` under `:root`.
 - **Rotating hero roles** are the `roles` array in `app.js`.
 - **Copyright year** is injected at runtime; no annual edit needed.
-- **Headline numbers** ($10B+ raised: $9B public markets, $1B private equity
-  and venture capital across 40 companies) appear in the meta description, the
-  hero stats, the Experience intro, and the About copy. Keep all four in sync
-  when they change.
+- **Headline figures** (25+ years in capital markets; about 30 companies) appear in the
+  meta description, the hero stats, the Experience intro, and the About copy. Keep
+  them in sync when they change. Do not add capital-raised totals without documentation.
 
 ## Images
 
